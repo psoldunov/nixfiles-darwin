@@ -34,6 +34,7 @@
       "loopback"
       "filebot"
       "raspberry-pi-imager"
+      "db-browser-for-sqlite"
       "cleanmymac"
       "cleanshot"
       "cscreen"
