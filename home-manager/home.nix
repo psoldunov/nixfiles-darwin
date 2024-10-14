@@ -13,6 +13,8 @@
     SHELL_SECRETS = {
       file = ../secrets/SHELL_SECRETS.age;
     };
+
+    identityPaths = ["/Users/psoldunov/.ssh/secrets"];
   };
 
   home.stateVersion = "24.05";
