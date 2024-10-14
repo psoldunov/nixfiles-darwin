@@ -9,8 +9,7 @@
       git add .
       git commit -am "rebuild commit $(date '+%d/%m/%Y %H:%M:%S')"
       darwin-rebuild switch --show-trace --flake ~/.nixfiles
-      yabai --restart-service
-      skhd --restart-service
+      skhd -r
     ''
   );
 
