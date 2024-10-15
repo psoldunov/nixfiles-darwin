@@ -52,6 +52,5 @@ yabai -m config window_topmost off
 # shadow settings
 yabai -m config window_shadow float
 
-
-# signals
-# yabai -m signal --add event=window_destroyed action="fish -c 'destroyEmptySpaces'"
+# Rules
+yabai -m rule --add app='Plexamp' sticky=on
