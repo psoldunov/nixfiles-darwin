@@ -14,9 +14,9 @@
     defaultSopsFormat = "yaml";
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 
-    # secrets = {
-    #   SHELL_SECRETS = {};
-    # };
+    secrets = {
+      SHELL_SECRETS = {};
+    };
   };
 
   home.packages = with pkgs; [
