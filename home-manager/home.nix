@@ -12,11 +12,11 @@
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/Users/psoldunov/.config/sops/age/keys.txt";
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 
-    secrets = {
-      SHELL_SECRETS = {};
-    };
+    # secrets = {
+    #   SHELL_SECRETS = {};
+    # };
   };
 
   home.stateVersion = "24.05";

@@ -49,7 +49,7 @@
           set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
       end
     '';
-    shellInitLast = "source ${config.sops.secrets.SHELL_SECRETS.path}";
+    # shellInitLast = "source ${config.sops.secrets.SHELL_SECRETS.path}";
   };
 
   home.shellAliases = {
@@ -64,14 +64,14 @@
     enable = true;
     enableVteIntegration = true;
     enableCompletion = true;
-    bashrcExtra = "source ${config.sops.secrets.SHELL_SECRETS.path}";
+    # bashrcExtra = "source ${config.sops.secrets.SHELL_SECRETS.path}";
   };
 
   programs.zsh = {
     enable = true;
     enableVteIntegration = true;
     enableCompletion = true;
-    initExtra = "source ${config.sops.secrets.SHELL_SECRETS.path}";
+    # initExtra = "source ${config.sops.secrets.SHELL_SECRETS.path}";
   };
 
   programs.thefuck = {
