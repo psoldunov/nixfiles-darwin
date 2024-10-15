@@ -9,13 +9,14 @@
 
   programs.home-manager.enable = true;
 
-  age = {
+  sops = {
+    defaultSopsFile = ../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/Users/psoldunov/.config/sops/age/keys.txt";
+
     secrets = {
-      SHELL_SECRETS = {
-        file = ../secrets/SHELL_SECRETS.age;
-      };
+      SHELL_SECRETS = {};
     };
-    identityPaths = ["/Users/psoldunov/.ssh/secrets"];
   };
 
   home.stateVersion = "24.05";

@@ -10,6 +10,7 @@
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
+
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
@@ -20,8 +21,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -34,8 +35,8 @@
   outputs = {
     self,
     nixpkgs,
-    agenix,
     darwin,
+    sops-nix,
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
@@ -55,10 +56,6 @@
         ./darwin/configuration.nix
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager
-        agenix.darwinModules.default
-        {
-          environment.systemPackages = [agenix.packages.${system}.default];
-        }
         {
           home-manager = {
             extraSpecialArgs = {
@@ -71,7 +68,7 @@
                 import ./home-manager/home.nix;
             };
             sharedModules = [
-              agenix.homeManagerModules.default
+              sops-nix.homeManagerModules.sops
             ];
           };
         }

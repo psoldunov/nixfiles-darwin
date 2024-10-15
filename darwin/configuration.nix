@@ -49,6 +49,7 @@ in {
       docker-ls
       eza
       ffmpeg
+      sops
       flac
       fzf
       git
