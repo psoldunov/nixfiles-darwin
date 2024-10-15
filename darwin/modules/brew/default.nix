@@ -33,6 +33,7 @@
       "soundsource"
       "loopback"
       "filebot"
+      "forklift"
       "raspberry-pi-imager"
       "cleanmymac"
       "cleanshot"
