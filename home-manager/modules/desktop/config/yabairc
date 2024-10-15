@@ -29,7 +29,7 @@ yabai -m config auto_balance off
 yabai -m config split_ratio 0.5
 
 # set mouse to follow focus (default: off)
-yabai -m config mouse_follows_focus off
+yabai -m config mouse_follows_focus on
 
 # set mouse interaction modifier key (default: fn)
 yabai -m config mouse_modifier alt
