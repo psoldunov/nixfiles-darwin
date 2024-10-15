@@ -85,6 +85,7 @@ in {
       neovim
       home-manager
       vscode
+      zed-editor
     ])
     ++ (with scripts; [
       update_system
