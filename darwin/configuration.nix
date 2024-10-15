@@ -75,7 +75,7 @@ in {
       slack
       telegram-desktop
       mkalias
-      zed
+      zed-editor
       zoom-us
       fastfetch
       alejandra
