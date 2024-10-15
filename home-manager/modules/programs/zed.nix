@@ -5,7 +5,7 @@
 }: let
   zedConfig = {
     theme = "Catppuccin Mocha Peach";
-    vim_mode = true;
+    vim_mode = false;
     auto_update = false;
     font_family = "SFMono Nerd Font";
     buffer_font_family = "SFMono Nerd Font";
