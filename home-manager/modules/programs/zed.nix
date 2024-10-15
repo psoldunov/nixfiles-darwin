@@ -6,8 +6,6 @@
   zedConfig = {
     theme = "Catppuccin Mocha Peach";
     vim_mode = true;
-    ui_font_size = 18.5;
-    buffer_font_size = 18.5;
     auto_update = false;
     font_family = "SFMono Nerd Font";
     buffer_font_family = "SFMono Nerd Font";
@@ -17,7 +15,6 @@
       inline_completion_provider = "supermaven";
     };
     terminal = {
-      font_size = 18.5;
       copy_on_select = true;
     };
     file_types = {
