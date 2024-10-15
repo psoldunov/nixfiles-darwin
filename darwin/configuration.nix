@@ -93,7 +93,10 @@ in {
     (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
 
   system.activationScripts.applications.text = let
     env = pkgs.buildEnv {
