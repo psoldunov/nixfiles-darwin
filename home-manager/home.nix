@@ -19,5 +19,9 @@
     # };
   };
 
+  home.packages = with pkgs; [
+    sops
+  ];
+
   home.stateVersion = "24.05";
 }
