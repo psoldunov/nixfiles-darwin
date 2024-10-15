@@ -28,12 +28,6 @@
       "HTML" = ["html" "svg"];
     };
     languages = {
-      TypeScript = {
-        language_servers = ["typescript-language-server"];
-      };
-      TSX = {
-        language_servers = ["typescript-language-server"];
-      };
       Nix = {
         format_on_save = {
           external = {
