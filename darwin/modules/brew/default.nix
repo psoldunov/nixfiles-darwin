@@ -71,7 +71,7 @@
       "affinity-publisher"
       "slack"
       "discord"
-      # "zed"
+      "zed"
     ];
     onActivation = {
       cleanup = "zap";

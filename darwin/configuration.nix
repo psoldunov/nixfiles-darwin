@@ -86,7 +86,7 @@ in {
       neovim
       home-manager
       vscode
-      pkgs-stable.zed-editor
+      # zed-editor
     ])
     ++ (with scripts; [
       update_system
