@@ -95,7 +95,7 @@ in {
       clean_system
     ]);
 
-  launchd.daemons.syncthing = {
+  launchd.agents.syncthing = {
     script = ''
       exec ${pkgs.syncthing}/bin/syncthing -no-browser
     '';
