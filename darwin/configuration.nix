@@ -54,6 +54,7 @@ in {
       eza
       ffmpeg
       flac
+      bruno
       fzf
       git
       htop
