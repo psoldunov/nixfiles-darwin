@@ -69,6 +69,7 @@
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
+      "zed"
     ];
     onActivation = {
       cleanup = "zap";
