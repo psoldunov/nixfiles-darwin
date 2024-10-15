@@ -20,23 +20,6 @@
     file_types = {
       "HTML" = ["html" "svg"];
     };
-    language_models = {
-      ollama = {
-        api_url = "http://localhost:11434";
-        available_models = [
-          {
-            provider = "ollama";
-            name = "codestral:latest";
-            max_tokens = 32768;
-          }
-          {
-            provider = "ollama";
-            name = "llama3.2:latest";
-            max_tokens = 32768;
-          }
-        ];
-      };
-    };
     languages = {
       TypeScript = {
         language_servers = ["typescript-language-server"];
