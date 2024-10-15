@@ -14,6 +14,13 @@
     features = {
       inline_completion_provider = "supermaven";
     };
+    assistant = {
+      default_model = {
+        provider = "openai";
+        model = "gpt-4o";
+      };
+      version = "2";
+    };
     terminal = {
       copy_on_select = true;
     };
@@ -38,9 +45,9 @@
     };
   };
 in {
-  # home.file."${config.xdg.configHome}/zed/settings.json" = {
-  #   text = "${builtins.toJSON zedConfig}";
-  # };
+  home.file."${config.xdg.configHome}/zed/settings.json" = {
+    text = "${builtins.toJSON zedConfig}";
+  };
 
   home.file."${config.xdg.configHome}/zed/themes/catppuccin-mocha-peach.json" = {
     text = ''
