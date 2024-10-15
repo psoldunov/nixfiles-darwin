@@ -74,6 +74,7 @@ in {
       kitty
       postman
       raycast
+      nano
       rectangle
       slack
       telegram-desktop
