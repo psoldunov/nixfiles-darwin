@@ -69,6 +69,8 @@
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
+      "slack"
+      "discord"
       # "zed"
     ];
     onActivation = {

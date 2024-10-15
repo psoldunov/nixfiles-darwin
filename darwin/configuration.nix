@@ -70,13 +70,13 @@ in {
       yazi
       localsend
       obsidian
-      discord
+      # discord
       kitty
       postman
       raycast
       nano
       rectangle
-      slack
+      # slack
       telegram-desktop
       mkalias
       zoom-us
