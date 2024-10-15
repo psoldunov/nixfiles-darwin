@@ -27,16 +27,6 @@
     file_types = {
       "HTML" = ["html" "svg"];
     };
-    languages = {
-      Nix = {
-        format_on_save = {
-          external = {
-            command = "${pkgs.alejandra}/bin/alejandra";
-            arguments = [];
-          };
-        };
-      };
-    };
   };
 in {
   home.file."${config.xdg.configHome}/zed/settings.json" = {
