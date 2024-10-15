@@ -3,6 +3,7 @@
   config,
   inputs,
   pkgs,
+  pkgs-stable,
   lib,
   ...
 }: let
@@ -85,7 +86,7 @@ in {
       neovim
       home-manager
       vscode
-      zed-editor
+      pkgs-stable.zed-editor
     ])
     ++ (with scripts; [
       update_system
