@@ -95,6 +95,18 @@ in {
       clean_system
     ]);
 
+  launchd.daemons.syncthing = {
+    script = ''
+      exec ${pkgs.syncthing}/bin/syncthing -no-browser
+    '';
+    serviceConfig = {
+      KeepAlive = true;
+      RunAtLoad = true;
+      StandardOutPath = "/var/log/syncthing.out.log";
+      StandardErrorPath = "/var/log/syncthing.err.log";
+    };
+  };
+
   fonts.packages = [
     (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
