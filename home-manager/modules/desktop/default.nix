@@ -17,11 +17,15 @@
     "FaceTime"
   ];
 
+  blacklistYabai = [];
+
+  blacklistBorders = [];
+
   handle_display_add = (
     pkgs.writeShellScript "handleDislayAdd" ''
       yabai -m config layout bsp
       killall Rectangle
-      borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps}" &
+      borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps ++ blacklistBorders}" &
     ''
   );
 
@@ -104,7 +108,8 @@
     ${lib.concatMapStrings (app: ''
         yabai -m rule --add app='${app}' manage=off
       '')
-      blacklistedApps}
+      blacklistedApps
+      ++ blacklistYabai}
   '';
 
   combinedYabaiConfig = builtins.readFile ./config/yabairc + "\n" + extraYabaiConfig;
@@ -123,7 +128,7 @@ in {
             yabai -m config layout float
         else
             yabai -m config layout bsp
-            borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps}" &
+            borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps ++ blacklistBorders}" &
         fi
       '';
     };
