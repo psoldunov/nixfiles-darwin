@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  blacklistedApps = [
+  blacklistGlobal = [
     "CleanMyMac X"
     "System Settings"
     "Finder"
@@ -25,7 +25,7 @@
     pkgs.writeShellScript "handleDislayAdd" ''
       yabai -m config layout bsp
       killall Rectangle
-      borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") (blacklistedApps ++ blacklistBorders)}" &
+      borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") (blacklistGlobal ++ blacklistBorders)}" &
     ''
   );
 
@@ -108,7 +108,7 @@
     ${lib.concatMapStrings (app: ''
         yabai -m rule --add app='${app}' manage=off
       '')
-      (blacklistedApps
+      (blacklistGlobal
         ++ blacklistYabai)}
   '';
 
@@ -128,7 +128,7 @@ in {
             yabai -m config layout float
         else
             yabai -m config layout bsp
-            borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") (blacklistedApps ++ blacklistBorders)}" &
+            borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") (blacklistGlobal ++ blacklistBorders)}" &
         fi
       '';
     };
