@@ -116,7 +116,14 @@ in {
         yabai -m signal --add event=display_removed action="${handle_display_remove}"
         yabai -m signal --add event=display_added action="${handle_display_add}"
 
-        borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps}" &
+        display_count=$(yabai -m query --displays | jq 'length')
+
+        if [ "$display_count" -eq 1 ]; then
+            yabai -m config layout float
+        else
+            yabai -m config layout bsp
+            borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps}" &
+        fi
       '';
     };
   };
