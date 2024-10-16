@@ -31,7 +31,9 @@
       git commit -am "pre-update commit $(date '+%d/%m/%Y %H:%M:%S')"
       nix flake update
       darwin-rebuild switch --show-trace --flake /Users/psoldunov/.nixfiles
-      yabai --restart-service
+      if [ "$yabai_config_checksum" != "$(md5sum "/Users/psoldunov/.config/yabai/yabairc" | awk '{ print $1 }')" ]; then
+        yabai --restart-service
+      fi
       skhd --restart-service
     ''
   );
