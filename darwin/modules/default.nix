@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./desktop
     ./brew
   ];
 }
