@@ -122,7 +122,9 @@ in {
         yabai -m signal --add event=display_removed action="${handle_display_remove}"
         yabai -m signal --add event=display_added action="${handle_display_add}"
 
-        if [ "$(yabai -m query --displays | jq 'length')" -eq 1 ]; then
+        display_count=$(yabai -m query --displays | jq 'length')
+
+        if [ "$display_count" -eq 1 ]; then
             ${handle_display_add}
         else
             ${handle_display_remove}
