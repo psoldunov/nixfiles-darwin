@@ -8,17 +8,17 @@
     enable = true;
     caskArgs.no_quarantine = true;
     taps = [
-      # {name = "koekeishiya/formulae";}
-      # {name = "felixkratz/formulae";}
+      {name = "koekeishiya/formulae";}
+      {name = "felixkratz/formulae";}
     ];
     brews = [
       "deno"
       "handbrake"
       "ollama"
       "mas"
-      # "yabai"
-      # "skhd"
-      # "borders"
+      "yabai"
+      "skhd"
+      "borders"
     ];
     casks = [
       "1password"

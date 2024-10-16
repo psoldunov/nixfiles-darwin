@@ -33,8 +33,6 @@ in {
     autoMigrate = true;
   };
 
-  services.yabai.enable = true;
-
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   services.nix-daemon.enable = true;
@@ -89,9 +87,6 @@ in {
       neovim
       home-manager
       vscode
-      yabai
-      skhd
-      jankyborders
       # zed-editor
     ])
     ++ (with scripts; [
@@ -155,11 +150,6 @@ in {
   };
 
   security.pam.enableSudoTouchIdAuth = true;
-
-  security.sudo.extraConfig = ''
-    psoldunov ALL=(root) NOPASSWD: sha256:4633ee38e0b66e1ba27239121f8531fb6fee9b2c8edff78996640345e9a6689c /run/current-system/sw/bin/yabai --load-sa
-    psoldunov ALL=(root) NOPASSWD: sha256:4633ee38e0b66e1ba27239121f8531fb6fee9b2c8edff78996640345e9a6689c ${pkgs.yabai}/bin/yabai --load-sa
-  '';
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
