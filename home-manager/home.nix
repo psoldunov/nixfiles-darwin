@@ -22,6 +22,7 @@
   home.packages = with pkgs; [
     sops
     lolcat
+    cowsay
   ];
 
   home.stateVersion = "24.05";
