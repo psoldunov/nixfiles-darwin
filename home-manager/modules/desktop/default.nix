@@ -19,7 +19,7 @@
 
   blacklistYabai = [];
 
-  blacklistBorders = ["kitty"];
+  blacklistBorders = [];
 
   handle_display_add = (
     pkgs.writeShellScript "handleDislayAdd" ''
