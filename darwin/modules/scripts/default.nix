@@ -26,6 +26,7 @@
 
   update_system = (
     pkgs.writeShellScriptBin "update_system" ''
+      yabai_config_checksum=$(md5sum "/Users/psoldunov/.config/yabai/yabairc" | awk '{ print $1 }')
       cd /Users/psoldunov/.nixfiles
       git add .
       git commit -am "pre-update commit $(date '+%d/%m/%Y %H:%M:%S')"
