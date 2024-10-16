@@ -54,3 +54,7 @@ yabai -m config window_shadow float
 
 # Rules
 yabai -m rule --add app='Plexamp' sticky=on
+
+# Signals
+yabai -m signal --add event=display_added action="yabai -m config layout bsp"
+yabai -m signal --add event=display_removed action="yabai -m config layout float"
