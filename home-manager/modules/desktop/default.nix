@@ -103,22 +103,16 @@
       fi
     ''
   );
-
-  extraYabaiConfig = ''
-    ${lib.concatMapStrings (app: ''
-        yabai -m rule --add app='${app}' manage=off
-      '')
-      (blacklistGlobal
-        ++ blacklistYabai)}
-  '';
-
-  combinedYabaiConfig = builtins.readFile ./config/yabairc + "\n" + extraYabaiConfig;
 in {
   home.file = {
     "${config.home.homeDirectory}/.config/yabai/yabairc" = {
       text = ''
-        ${combinedYabaiConfig}
-
+        ${builtins.readFile ./config/yabairc + "\n"}
+        ${lib.concatMapStrings (app: ''
+            yabai -m rule --add app='${app}' manage=off
+          '')
+          (blacklistGlobal
+            ++ blacklistYabai)}
         yabai -m signal --add event=display_removed action="${handle_display_remove}"
         yabai -m signal --add event=display_added action="${handle_display_add}"
 
