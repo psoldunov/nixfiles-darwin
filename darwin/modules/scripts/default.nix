@@ -5,7 +5,7 @@
 }: {
   rebuild_system = (
     pkgs.writeShellScriptBin "rebuild_system" ''
-      yabai_config_checksum = $(md5sum "/Users/psoldunov/.config/yabai/yabairc" | awk '{ print $1 }')
+      yabai_config_checksum=$(md5sum "/Users/psoldunov/.config/yabai/yabairc" | awk '{ print $1 }')
       cd /Users/psoldunov/.nixfiles
       git add .
       git commit -am "rebuild commit $(date '+%d/%m/%Y %H:%M:%S')"
