@@ -96,6 +96,12 @@ in {
     "${config.home.homeDirectory}/.config/yabai/yabairc" = {
       text = ''
         ${combinedYabaiConfig}
+
+        yabai -m signal --add event=display_removed action="${pkgs.rectangle}/Applications/Rectangle.app/Contents/MacOS/Rectangle -f"
+
+        # kill rectangle on connect
+        yabai -m signal --add event=display_added action="killall Rectangle"
+
         borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps}" &
       '';
     };
