@@ -33,6 +33,8 @@ in {
     autoMigrate = true;
   };
 
+  services.yabai.enable = true;
+
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   services.nix-daemon.enable = true;
