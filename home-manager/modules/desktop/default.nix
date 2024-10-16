@@ -16,6 +16,22 @@
     "Raycast"
   ];
 
+  handle_display_add = (
+    pkgs.writeShellScript "handleDislayAdd" ''
+      yabai -m config layout bsp
+      killall Rectangle
+      borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps}" &
+    ''
+  );
+
+  handle_display_remove = (
+    pkgs.writeShellScript "handleDislayRemove" ''
+      yabai -m config layout float
+      killall borders
+      ${pkgs.rectangle}/Applications/Rectangle.app/Contents/MacOS/Rectangle -f &
+    ''
+  );
+
   focus_space = (
     pkgs.writeShellScript "focus_space" ''
       # Pass the desired space number as an argument to the script
@@ -97,10 +113,8 @@ in {
       text = ''
         ${combinedYabaiConfig}
 
-        yabai -m signal --add event=display_removed action="${pkgs.rectangle}/Applications/Rectangle.app/Contents/MacOS/Rectangle -f"
-
-        # kill rectangle on connect
-        yabai -m signal --add event=display_added action="killall Rectangle"
+        yabai -m signal --add event=display_removed action="${handle_display_remove}"
+        yabai -m signal --add event=display_added action="${handle_display_add}"
 
         borders active_color=0xFFFCFDFC inactive_color=0xFF2D3B53 width=2.5 blacklist="${lib.concatMapStrings (app: app + ",") blacklistedApps}" &
       '';
