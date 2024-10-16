@@ -14,7 +14,7 @@
     "Zoom"
     "Plexamp"
     "Raycast"
-    "Facetime"
+    "FaceTime"
   ];
 
   handle_display_add = (
