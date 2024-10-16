@@ -12,7 +12,7 @@
     relative_line_numbers = true;
     soft_wrap = "editor_width";
     features = {
-      inline_completion_provider = "supermaven";
+      inline_completion_provider = "copilot";
     };
     assistant = {
       default_model = {
