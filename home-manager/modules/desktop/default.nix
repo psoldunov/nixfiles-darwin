@@ -103,29 +103,31 @@
       fi
     ''
   );
+
+  yabaiConfig = pkgs.writeShellScript "yabairc" ''
+    ${builtins.readFile ./config/config.sh + "\n"}
+
+    yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+    sudo yabai --load-sa
+
+    ${lib.concatMapStrings (app: ''
+        yabai -m rule --add app='${app}' manage=off
+      '')
+      (blacklistGlobal
+        ++ blacklistYabai)}
+    yabai -m signal --add event=display_removed action="${handle_display_remove}"
+    yabai -m signal --add event=display_added action="${handle_display_add}"
+
+    if [ "$(yabai -m query --displays | jq 'length')" -eq 1 ]; then
+        ${handle_display_remove}
+    else
+        ${handle_display_add}
+    fi
+  '';
 in {
   home.file = {
     "${config.home.homeDirectory}/.config/yabai/yabairc" = {
-      text = ''
-        ${builtins.readFile ./config/yabairc + "\n"}
-
-        yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-        sudo yabai --load-sa
-
-        ${lib.concatMapStrings (app: ''
-            yabai -m rule --add app='${app}' manage=off
-          '')
-          (blacklistGlobal
-            ++ blacklistYabai)}
-        yabai -m signal --add event=display_removed action="${handle_display_remove}"
-        yabai -m signal --add event=display_added action="${handle_display_add}"
-
-        if [ "$(yabai -m query --displays | jq 'length')" -eq 1 ]; then
-            ${handle_display_remove}
-        else
-            ${handle_display_add}
-        fi
-      '';
+      source = yabaiConfig;
     };
   };
 

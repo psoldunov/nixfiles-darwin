@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-
 # New window spawns to the right or bottom of the current window
 yabai -m config window_placement second_child
 
