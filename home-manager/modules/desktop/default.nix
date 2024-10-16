@@ -108,6 +108,10 @@ in {
     "${config.home.homeDirectory}/.config/yabai/yabairc" = {
       text = ''
         ${builtins.readFile ./config/yabairc + "\n"}
+
+        yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+        sudo yabai --load-sa
+
         ${lib.concatMapStrings (app: ''
             yabai -m rule --add app='${app}' manage=off
           '')
